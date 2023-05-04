@@ -4,8 +4,10 @@ import time
 import openai
 import googlemaps
 
-openai.api_key = os.environ['OPENAI_API_KEY']
-googlemaps_api_key = os.environ['GOOGLEMAPS_API_KEY']
+import streamlit as st
+
+openai.api_key = st.secrets['OPENAI_API_KEY']
+googlemaps_api_key = st.secrets['GOOGLEMAPS_API_KEY']
 
 gmaps = googlemaps.Client(googlemaps_api_key)
 
