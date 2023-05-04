@@ -3,7 +3,7 @@ import time
 import openai
 import googlemaps
 
-openai.api_key = "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"
+# openai.api_key = "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"
 googlemaps_api_key = "AIzaSyAQCOr2z_gBhaKfuniDbEJI9DNleVDFbdk"
 
 gmaps = googlemaps.Client(googlemaps_api_key)
