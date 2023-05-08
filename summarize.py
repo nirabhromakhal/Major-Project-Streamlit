@@ -20,21 +20,28 @@ BUILDING_CATEGORIES_PLURAL = [' banks or ATMs', ' hospitals or medical shops', '
                               ' shopping places', ' stores', ' parks or zoo', ' bars or liquor stores']
 
 
-def format_building_counts(building_counts: list[list[str]]):
-    building_summary = ""
+def format_building_counts(output: list[list[str]]):
+    
+    # printing first summary
     for i in range(3):
-        if not building_counts[i]:
-            continue
-        building_summary += f"Within a distance of {str(i + 1)} km, we have "
-        for j in range(len(building_counts[i])):
-            if len(building_counts[i]) == 1:
-                building_summary += f"{building_counts[i][j]}.\n\n"
-            elif j == len(building_counts[i]) - 1:
-                building_summary += f"and {building_counts[i][j]}.\n\n"
-            else:
-                building_summary += f"{building_counts[i][j]}, "
+      if output[i] == []: continue
+      if i==0:
+        print("Within a distance of 1 km, we have ", end="")
+      elif i==1:
+        print("Increasing the search space to 2 km yields in extra establishments such as ", end="")
+      else :
+        print("Overall within 3 km, in addition to previously discovered buildings, one can come across ",end="")
+      for j in range(len(output[i])):
+        if len(output[i]) == 1:
+          print(output[i][j], end=".\n\n")
+        elif j == len(output[i])-1:
+          print('and ' + output[i][j], end=".\n\n")
+        elif j== len(output[i])-2:
+          print(output[i][j],end=" ")
+        else:
+          print(output[i][j], end=", ")
 
-    return building_summary
+    
 
 
 def initial_summary(location: tuple):
